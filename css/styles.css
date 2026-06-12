@@ -10,6 +10,27 @@
   --color-red: #d64c5a;
   --color-green: #4cd67a;
 }
+/* utilities start */
+.btn--active {
+  color: var(--dark-blue) !important;
+  border: 1px solid var(--light-blue) !important;
+}
+.char--correct {
+  color: var(--color-green);
+}
+.char--wrong {
+  color: var(--color-red);
+  border-bottom: 2px solid var(--color-red);
+}
+.text--blur {
+  filter: blur(6px);
+}
+.hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+/* utilities end */
+
 *,
 *::before,
 *::after {
@@ -30,6 +51,7 @@ body {
   background: var(--neutral-900);
   font-size: 1.6rem;
   padding: 3rem 12rem;
+  position: relative;
 }
 /* header styles */
 .header {
@@ -61,7 +83,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   margin-top: 4rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 .typing-info,
 .typing-options,
@@ -115,6 +137,64 @@ body {
     outline-offset: 0.1rem;
   }
 }
+
 .btn:not(:last-of-type) {
   margin-right: 0.2rem;
+}
+
+/* styling text */
+.text-box {
+  padding: 4rem 0;
+  line-height: 1.6;
+  border-top: 1px solid var(--neutral-800);
+  border-bottom: 1px solid var(--neutral-800);
+  user-select: none;
+  font-size: 3rem;
+}
+.restart {
+  background-color: var(--neutral-800);
+  color: var(--neutral-0);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 1rem 1.4rem;
+  border: none;
+  border-radius: 0.6rem;
+  margin: 3rem auto 0 auto;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(0.98);
+  }
+  & img {
+    width: 1.4rem;
+  }
+}
+/* start overlay */
+.start-overlay {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  color: var(--neutral-0);
+  & .start-overlay__btn {
+    color: inherit;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    padding: 1.2rem 1.6rem;
+    background-color: var(--dark-blue);
+    transition: all 0.3s ease;
+    &:hover {
+      transform: scale(0.98);
+    }
+  }
 }
