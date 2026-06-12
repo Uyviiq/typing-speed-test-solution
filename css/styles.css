@@ -25,6 +25,7 @@ body {
   max-width: 144rem;
   margin: 0 auto;
   font-family: "Sora", sans-serif;
+  font-weight: 400;
   color: var(--neutral-400);
   background: var(--neutral-900);
   font-size: 1.6rem;
@@ -43,10 +44,77 @@ body {
 .best-score__icon {
   width: 2rem;
 }
-p.best-score__text {
+.best-score__value {
   font-size: 1.4rem;
-  & .best-score__value {
-    font-size: 1.4rem;
-    color: var(--neutral-0);
+  color: var(--neutral-0);
+}
+[class$="value"] {
+  font-weight: 700;
+  color: var(--neutral-0);
+}
+[class$="text"] {
+  font-size: 1.2rem;
+}
+/* options and typing information */
+.config-logs-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  margin-top: 4rem;
+  padding-bottom: 1rem;
+}
+.typing-info,
+.typing-options,
+.difficulty,
+.mode {
+  display: flex;
+}
+.typing-options {
+  justify-self: end;
+}
+.typing-info p:first-of-type {
+  padding: 0 2rem 0 0;
+}
+.typing-info > p:not(:first-of-type) {
+  padding: 0 2rem;
+  border-left: 1px solid var(--neutral-800);
+}
+.accuracy--color {
+  color: var(--color-red);
+}
+.time-color {
+  color: var(--light-yellow);
+}
+.mode,
+.difficulty {
+  align-items: center;
+  gap: 1rem;
+}
+.mode {
+  padding-left: 2rem;
+}
+.difficulty {
+  padding-right: 2rem;
+  border-right: 1px solid var(--neutral-800);
+}
+
+.btn {
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--neutral-0);
+  border: 1px solid var(--neutral-500);
+  border-radius: 0.6rem;
+  padding: 0.4rem 0.6rem;
+  transition: all 0.3s ease;
+  &:hover {
+    color: var(--dark-blue);
+    border: 1px solid var(--light-blue);
   }
+  &:focus {
+    outline: 2px solid var(--light-blue);
+    outline-offset: 0.1rem;
+  }
+}
+.btn:not(:last-of-type) {
+  margin-right: 0.2rem;
 }
