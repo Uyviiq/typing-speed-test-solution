@@ -1,0 +1,44 @@
+:root {
+  --neutral-900: #121212;
+  --neutral-800: #262626;
+  --neutral-500: #727279;
+  --neutral-400: #959597;
+  --neutral-0: #fff;
+  --dark-blue: #1a7dff;
+  --light-blue: #4da6ff;
+  --light-yellow: #f4dc71;
+  --color-red: #d64c5a;
+  --color-green: #4cd67a;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  max-width: 144rem;
+  margin: 0 auto;
+  font-family: "Sora", sans-serif;
+  color: var(--neutral-400);
+  background: var(--neutral-900);
+  font-size: 1.6rem;
+  padding: 3rem 12rem;
+}
+/* header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.best-score {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.best-score__icon {
+  width: 2rem;
+}
+p.best-score__text {
+  font-size: 1.4rem;
+  & .best-score__value {
+    font-size: 1.4rem;
+    color: var(--neutral-0);
+  }
+}
