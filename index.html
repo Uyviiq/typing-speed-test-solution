@@ -19,7 +19,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/styles.css" />
-    <script defer src="./js/controller.js"></script>
+    <script defer src="./js/controller.js" type="module"></script>
   </head>
   <body>
     <header class="header">
@@ -52,9 +52,11 @@
           <div class="difficulty">
             <p class="difficulty__text">Difficulty:</p>
             <div class="difficulty__btns">
-              <button class="btn">Easy</button>
-              <button class="btn">Medium</button>
-              <button class="btn btn--active">Hard</button>
+              <button class="btn" data-difficulty="easy">Easy</button>
+              <button class="btn" data-difficulty="medium">Medium</button>
+              <button class="btn btn--active" data-difficulty="hard">
+                Hard
+              </button>
             </div>
           </div>
           <div class="mode">
