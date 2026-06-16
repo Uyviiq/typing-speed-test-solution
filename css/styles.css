@@ -32,6 +32,12 @@
 .hidden {
   display: none !important;
 }
+.time--started {
+  color: var(--light-yellow);
+}
+.accuracy--started {
+  color: var(--color-red);
+}
 /* utilities end */
 
 *,
