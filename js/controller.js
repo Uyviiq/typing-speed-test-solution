@@ -11,6 +11,7 @@ const controlStart = function (difficulty) {
 };
 
 const controlTyping = function (key) {
+  if (model.state.textArr.length === model.state.currIdx + 1) return;
   if (key === "Backspace") {
     if (model.state.currIdx === 0) return;
     model.handleBackSpace();
