@@ -11,7 +11,9 @@ const controlStart = function (difficulty) {
 };
 
 const controlTyping = function (key) {
-  if (model.state.textArr.length === model.state.currIdx + 1) return;
+  if (model.state.textArr.length < model.state.currIdx + 1) {
+    return;
+  }
   if (key === "Backspace") {
     if (model.state.currIdx === 0) return;
     model.handleBackSpace();
@@ -23,7 +25,8 @@ const controlTyping = function (key) {
   valid
     ? TextView.setCorrectChar(model.state.currIdx - 1)
     : TextView.setWrongChar(model.state.currIdx - 1);
-  TextView.addCharCursor(model.state.currIdx);
+  model.state.currIdx !== model.state.textArr.length &&
+    TextView.addCharCursor(model.state.currIdx);
 };
 const init = function () {
   StartView.addStartHandler(controlStart);

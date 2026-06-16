@@ -5,7 +5,7 @@ export const state = {
   textArr: [],
   correctCharsTyped: 0,
   incorrectCharsTyped: 0,
-  currIdx: 0,
+  currIdx: 140,
 };
 
 export const loadText = function (attrName) {
