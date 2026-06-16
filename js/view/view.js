@@ -21,6 +21,9 @@ class View {
   setCorrectChar(position) {
     this._addClassName("char--correct", position);
   }
+  removeAllClasses(item) {
+    item.classList = [];
+  }
   setWrongChar(position) {
     this._addClassName("char--wrong", position);
   }

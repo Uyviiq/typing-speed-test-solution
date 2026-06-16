@@ -7,10 +7,17 @@ const controlStart = function (difficulty) {
   model.loadText(difficulty);
   TextView.render(model.state.textArr, model.state.charsEl);
   StartView.addCharCursor(model.state.currIdx);
-  TextView.charsEl = StartView._charsEl;
+  TextView._charsEl = StartView._charsEl;
 };
 
 const controlTyping = function (key) {
+  if (key === "Backspace") {
+    if (model.state.currIdx === 0) return;
+    model.handleBackSpace();
+    TextView.removeAllClasses(TextView._charsEl.at(model.state.currIdx));
+    TextView.addCharCursor(model.state.currIdx);
+    return;
+  }
   const valid = model.ValidateChar(key);
   valid
     ? TextView.setCorrectChar(model.state.currIdx - 1)

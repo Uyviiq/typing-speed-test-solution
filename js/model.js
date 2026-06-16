@@ -20,3 +20,4 @@ export const ValidateChar = function (char) {
   state.currIdx++;
   return isCorrect;
 };
+export const handleBackSpace = () => state.currIdx--;

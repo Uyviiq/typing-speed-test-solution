@@ -11,7 +11,7 @@ class TextView extends View {
       "keydown",
       function (e) {
         // prettier-ignore
-        const keysToIgnore = ["Shift","Control","Alt","Enter","CapsLock","ContextMenu","Meta","ArrowUp","ArrowLeft","ArrowRight","ArrowDown",'Backspace'];
+        const keysToIgnore = ["Shift","Control","Alt","Enter","CapsLock","ContextMenu","Meta","ArrowUp","ArrowLeft","ArrowRight","ArrowDown"];
         if (
           this._parentEl.classList.contains("text--blur") ||
           keysToIgnore.includes(e.key)
