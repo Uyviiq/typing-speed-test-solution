@@ -33,5 +33,9 @@ class View {
   get charsEl() {
     return this._charsEl;
   }
+  updateTime(time) {
+    const timerEl = document.querySelector(".typing-info__time-value");
+    timerEl.textContent = `0:${time.toString().padStart(2, "0")}`;
+  }
 }
 export default View;

@@ -5,7 +5,9 @@ export const state = {
   textArr: [],
   correctCharsTyped: 0,
   incorrectCharsTyped: 0,
-  currIdx: 140,
+  currIdx: 0,
+  timer: 60,
+  mode: "timer",
 };
 
 export const loadText = function (attrName) {
@@ -20,4 +22,6 @@ export const ValidateChar = function (char) {
   state.currIdx++;
   return isCorrect;
 };
+export const decreaseTime = () => state.timer--;
+
 export const handleBackSpace = () => state.currIdx--;

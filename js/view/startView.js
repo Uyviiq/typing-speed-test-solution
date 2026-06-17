@@ -28,6 +28,12 @@ class StartView extends View {
     this._btnStart.parentElement.classList.add("hidden");
     this._restartBtn.classList.remove("hidden");
   }
+  addRestartHanlder(handler) {
+    this._restartBtn.addEventListener(
+      "click",
+      handler.bind(null, this._getDifficulty()),
+    );
+  }
   _getDifficulty() {
     const difficultyLevel = [...this._difficultyContainer.children].find(
       (child) => child.classList.contains("btn--active"),
