@@ -2,7 +2,6 @@ import View from "./view.js";
 
 class StartView extends View {
   _btnStart = document.querySelector(".start-overlay__btn");
-  _difficultyContainer = document.querySelector(".difficulty__btns");
   _parentEl = document.querySelector(".text-box p");
   _restartBtn = document.querySelector(".restart");
   addStartHandler(handler) {
@@ -31,14 +30,11 @@ class StartView extends View {
   addRestartHanlder(handler) {
     this._restartBtn.addEventListener(
       "click",
-      handler.bind(null, this._getDifficulty()),
+      function (e) {
+        document.activeElement.blur();
+        handler(this._getDifficulty());
+      }.bind(this),
     );
-  }
-  _getDifficulty() {
-    const difficultyLevel = [...this._difficultyContainer.children].find(
-      (child) => child.classList.contains("btn--active"),
-    ).dataset.difficulty;
-    return difficultyLevel;
   }
 }
 

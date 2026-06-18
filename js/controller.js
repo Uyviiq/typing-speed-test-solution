@@ -3,6 +3,7 @@ import StartView from "./view/startView.js";
 import TextView from "./view/textView.js";
 import * as model from "./model.js";
 import startView from "./view/startView.js";
+import textView from "./view/textView.js";
 
 const startTimer = function () {
   model.decreaseTime();
@@ -16,12 +17,18 @@ const startTimer = function () {
   }, 1000);
 };
 
-const controlStartAndRestart = function (difficulty) {
+const controlStart = function (difficulty) {
   startTimer();
   model.loadText(difficulty);
-  TextView.render(model.state.textArr, model.state.charsEl);
+  TextView.render(model.state.textArr);
   StartView.addCharCursor(model.state.currIdx);
   TextView._charsEl = StartView._charsEl;
+};
+
+const controlRestart = function () {
+  model.resetTypingStates();
+  TextView.render(model.state.textArr, model.state.charsEl);
+  textView.addCharCursor(model.state.currIdx);
 };
 
 const controlTyping = function (key) {
@@ -43,11 +50,18 @@ const controlTyping = function (key) {
     TextView.addCharCursor(model.state.currIdx);
 };
 
-const controlDifficulty = function () {};
+const controlDifficulty = function (difficulty) {
+  model.loadText(difficulty);
+  model.resetTypingStates();
+  TextView.render(model.state.textArr);
+  StartView.addCharCursor(model.state.currIdx);
+  TextView._charsEl = StartView._charsEl;
+};
 
 const init = function () {
-  StartView.addStartHandler(controlStartAndRestart);
-  StartView.addRestartHanlder(controlStartAndRestart);
+  StartView.addStartHandler(controlStart);
+  StartView.addRestartHanlder(controlRestart);
+  StartView.addDifficultyHandler(controlDifficulty);
   TextView.addTypingHandler(controlTyping);
 };
 init();

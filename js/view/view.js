@@ -37,5 +37,30 @@ class View {
     const timerEl = document.querySelector(".typing-info__time-value");
     timerEl.textContent = `0:${time.toString().padStart(2, "0")}`;
   }
+  updateWPM() {}
+  updateAccuracy() {}
+  _getDifficulty() {
+    const difficultyContainer = document.querySelector(".difficulty__btns");
+    const difficultyLevel = [...difficultyContainer.children].find((child) =>
+      child.classList.contains("btn--active"),
+    ).dataset.difficulty;
+    return difficultyLevel;
+  }
+  addDifficultyHandler(handler) {
+    document.querySelector(".difficulty__btns").addEventListener(
+      "click",
+      function (e) {
+        const target = e.target.closest(".btn");
+        const textBox = document.querySelector(".text-box p");
+        if (!target || textBox.classList.contains("text--blur")) return;
+        [...e.currentTarget.children].forEach((child) =>
+          child.classList.remove("btn--active"),
+        );
+        target.classList.add("btn--active");
+        target.blur();
+        handler(this._getDifficulty());
+      }.bind(this),
+    );
+  }
 }
 export default View;

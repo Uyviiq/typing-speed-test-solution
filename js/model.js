@@ -1,13 +1,23 @@
 import textData from "./data.js";
 import { randomNumber } from "./helpers.js";
 
-export const state = {
+export let state = {
   textArr: [],
   correctCharsTyped: 0,
   incorrectCharsTyped: 0,
   currIdx: 0,
   timer: 60,
   mode: "timer",
+};
+
+export const resetTypingStates = function () {
+  state = {
+    ...state,
+    currIdx: 0,
+    timer: 60,
+    correctCharsTyped: 0,
+    incorrectCharsTyped: 0,
+  };
 };
 
 export const loadText = function (attrName) {
